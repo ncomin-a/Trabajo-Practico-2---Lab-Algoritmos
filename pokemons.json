@@ -1,0 +1,418 @@
+{
+  "pokemons": [
+    {
+      "id": 1,
+      "nombre": "Bulbasaur",
+      "tipo": "Planta/Veneno",
+      "poder_combate": 45
+    },
+    {
+      "id": 4,
+      "nombre": "Charmander",
+      "tipo": "Fuego",
+      "poder_combate": 52
+    },
+    {
+      "id": 7,
+      "nombre": "Squirtle",
+      "tipo": "Agua",
+      "poder_combate": 48
+    },
+    {
+      "id": 25,
+      "nombre": "Pikachu",
+      "tipo": "Eléctrico",
+      "poder_combate": 55
+    },
+    {
+      "id": 39,
+      "nombre": "Jigglypuff",
+      "tipo": "Normal/Hada",
+      "poder_combate": 40
+    },
+    {
+      "id": 54,
+      "nombre": "Psyduck",
+      "tipo": "Agua",
+      "poder_combate": 52
+    },
+    {
+      "id": 60,
+      "nombre": "Poliwag",
+      "tipo": "Agua",
+      "poder_combate": 40
+    },
+    {
+      "id": 63,
+      "nombre": "Abra",
+      "tipo": "Psíquico",
+      "poder_combate": 35
+    },
+    {
+      "id": 66,
+      "nombre": "Machop",
+      "tipo": "Lucha",
+      "poder_combate": 80
+    },
+    {
+      "id": 69,
+      "nombre": "Bellsprout",
+      "tipo": "Planta/Veneno",
+      "poder_combate": 75
+    },
+    {
+      "id": 74,
+      "nombre": "Geodude",
+      "tipo": "Roca/Tierra",
+      "poder_combate": 85
+    },
+    {
+      "id": 79,
+      "nombre": "Slowpoke",
+      "tipo": "Agua/Psíquico",
+      "poder_combate": 40
+    },
+    {
+      "id": 84,
+      "nombre": "Doduo",
+      "tipo": "Normal/Volador",
+      "poder_combate": 76
+    },
+    {
+      "id": 98,
+      "nombre": "Krabby",
+      "tipo": "Agua",
+      "poder_combate": 105
+    },
+    {
+      "id": 133,
+      "nombre": "Eevee",
+      "tipo": "Normal",
+      "poder_combate": 55
+    },
+    {
+      "id": 134,
+      "nombre": "Vaporeon",
+      "tipo": "Agua",
+      "poder_combate": 65
+    },
+    {
+      "id": 135,
+      "nombre": "Jolteon",
+      "tipo": "Eléctrico",
+      "poder_combate": 65
+    },
+    {
+      "id": 136,
+      "nombre": "Flareon",
+      "tipo": "Fuego",
+      "poder_combate": 60
+    },
+    {
+      "id": 137,
+      "nombre": "Porygon",
+      "tipo": "Normal",
+      "poder_combate": 60
+    },
+    {
+      "id": 138,
+      "nombre": "Omanyte",
+      "tipo": "Roca/Agua",
+      "poder_combate": 35
+    },
+    {
+      "id": 139,
+      "nombre": "Omastar",
+      "tipo": "Roca/Agua",
+      "poder_combate": 115
+    },
+    {
+      "id": 140,
+      "nombre": "Kabuto",
+      "tipo": "Roca/Agua",
+      "poder_combate": 45
+    },
+    {
+      "id": 141,
+      "nombre": "Kabutops",
+      "tipo": "Roca/Agua",
+      "poder_combate": 105
+    },
+    {
+      "id": 142,
+      "nombre": "Aerodactyl",
+      "tipo": "Roca/Volador",
+      "poder_combate": 105
+    },
+    {
+      "id": 143,
+      "nombre": "Snorlax",
+      "tipo": "Normal",
+      "poder_combate": 110
+    },
+    {
+      "id": 144,
+      "nombre": "Articuno",
+      "tipo": "Hielo/Volador",
+      "poder_combate": 125
+    },
+    {
+      "id": 145,
+      "nombre": "Zapdos",
+      "tipo": "Eléctrico/Volador",
+      "poder_combate": 126
+    },
+    {
+      "id": 146,
+      "nombre": "Moltres",
+      "tipo": "Fuego/Volador",
+      "poder_combate": 125
+    },
+    {
+      "id": 147,
+      "nombre": "Dratini",
+      "tipo": "Dragón",
+      "poder_combate": 64
+    },
+    {
+      "id": 148,
+      "nombre": "Dragonair",
+      "tipo": "Dragón",
+      "poder_combate": 84
+    },
+    {
+      "id": 149,
+      "nombre": "Dragonite",
+      "tipo": "Dragón/Volador",
+      "poder_combate": 134
+    },
+    {
+      "id": 150,
+      "nombre": "Mewtwo",
+      "tipo": "Psíquico",
+      "poder_combate": 154
+    },
+    {
+      "id": 151,
+      "nombre": "Mew",
+      "tipo": "Psíquico",
+      "poder_combate": 100
+    },
+    {
+      "id": 152,
+      "nombre": "Chikorita",
+      "tipo": "Planta",
+      "poder_combate": 49
+    },
+    {
+      "id": 153,
+      "nombre": "Bayleef",
+      "tipo": "Planta",
+      "poder_combate": 62
+    },
+    {
+      "id": 154,
+      "nombre": "Meganium",
+      "tipo": "Planta",
+      "poder_combate": 80
+    },
+    {
+      "id": 155,
+      "nombre": "Cyndaquil",
+      "tipo": "Fuego",
+      "poder_combate": 49
+    },
+    {
+      "id": 156,
+      "nombre": "Quilava",
+      "tipo": "Fuego",
+      "poder_combate": 58
+    },
+    {
+      "id": 157,
+      "nombre": "Typhlosion",
+      "tipo": "Fuego",
+      "poder_combate": 84
+    },
+    {
+      "id": 158,
+      "nombre": "Totodile",
+      "tipo": "Agua",
+      "poder_combate": 50
+    },
+    {
+      "id": 159,
+      "nombre": "Croconaw",
+      "tipo": "Agua",
+      "poder_combate": 65
+    },
+    {
+      "id": 160,
+      "nombre": "Feraligatr",
+      "tipo": "Agua",
+      "poder_combate": 105
+    },
+    {
+      "id": 161,
+      "nombre": "Sentret",
+      "tipo": "Normal",
+      "poder_combate": 35
+    },
+    {
+      "id": 162,
+      "nombre": "Furret",
+      "tipo": "Normal",
+      "poder_combate": 55
+    },
+    {
+      "id": 163,
+      "nombre": "Hoothoot",
+      "tipo": "Normal/Volador",
+      "poder_combate": 30
+    },
+    {
+      "id": 164,
+      "nombre": "Noctowl",
+      "tipo": "Normal/Volador",
+      "poder_combate": 74
+    },
+    {
+      "id": 165,
+      "nombre": "Ledyba",
+      "tipo": "Bicho/Volador",
+      "poder_combate": 30
+    },
+    {
+      "id": 166,
+      "nombre": "Ledian",
+      "tipo": "Bicho/Volador",
+      "poder_combate": 55
+    },
+    {
+      "id": 167,
+      "nombre": "Spinarak",
+      "tipo": "Bicho",
+      "poder_combate": 60
+    },
+    {
+      "id": 168,
+      "nombre": "Girafarig",
+      "tipo": "Normal/Psíquico",
+      "poder_combate": 70
+    },
+    {
+      "id": 169,
+      "nombre": "Dunsparce",
+      "tipo": "Normal",
+      "poder_combate": 75
+    },
+    {
+      "id": 170,
+      "nombre": "Wooper",
+      "tipo": "Agua/Tierra",
+      "poder_combate": 45
+    },
+    {
+      "id": 171,
+      "nombre": "Quagsire",
+      "tipo": "Agua/Tierra",
+      "poder_combate": 85
+    },
+    {
+      "id": 172,
+      "nombre": "Espeon",
+      "tipo": "Psíquico",
+      "poder_combate": 65
+    },
+    {
+      "id": 173,
+      "nombre": "Umbreon",
+      "tipo": "Siniestro",
+      "poder_combate": 65
+    },
+    {
+      "id": 174,
+      "nombre": "Murkrow",
+      "tipo": "Siniestro/Volador",
+      "poder_combate": 50
+    },
+    {
+      "id": 175,
+      "nombre": "Misdreavus",
+      "tipo": "Fantasma",
+      "poder_combate": 85
+    },
+    {
+      "id": 176,
+      "nombre": "Unown",
+      "tipo": "Psíquico",
+      "poder_combate": 72
+    },
+    {
+      "id": 177,
+      "nombre": "Wobbuffet",
+      "tipo": "Psíquico",
+      "poder_combate": 33
+    },
+    {
+      "id": 179,
+      "nombre": "Azumarill",
+      "tipo": "Agua",
+      "poder_combate": 80
+    },
+    {
+      "id": 180,
+      "nombre": "Sudowoodo",
+      "tipo": "Roca",
+      "poder_combate": 100
+    },
+    {
+      "id": 181,
+      "nombre": "Politoed",
+      "tipo": "Agua",
+      "poder_combate": 90
+    },
+    {
+      "id": 182,
+      "nombre": "Hoppip",
+      "tipo": "Planta/Volador",
+      "poder_combate": 35
+    },
+    {
+      "id": 183,
+      "nombre": "Skiploom",
+      "tipo": "Planta/Volador",
+      "poder_combate": 45
+    },
+    {
+      "id": 184,
+      "nombre": "Jumpluff",
+      "tipo": "Planta/Volador",
+      "poder_combate": 55
+    },
+    {
+      "id": 185,
+      "nombre": "Aipom",
+      "tipo": "Normal",
+      "poder_combate": 55
+    },
+    {
+      "id": 186,
+      "nombre": "Sunkern",
+      "tipo": "Planta",
+      "poder_combate": 30
+    },
+    {
+      "id": 187,
+      "nombre": "Sunflora",
+      "tipo": "Planta",
+      "poder_combate": 105
+    },
+    {
+      "id": 188,
+      "nombre": "Yanma",
+      "tipo": "Bicho/Volador",
+      "poder_combate": 95
+    }
+  ]
+}

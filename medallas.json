@@ -1,0 +1,36 @@
+{
+  "medallas": [
+    {
+      "nombre": "Medalla Roca",
+      "gimnasio": "Pewter City"
+    },
+    {
+      "nombre": "Medalla Agua",
+      "gimnasio": "Cerulean City"
+    },
+    {
+      "nombre": "Medalla Trueno",
+      "gimnasio": "Vermilion City"
+    },
+    {
+      "nombre": "Medalla Tierra",
+      "gimnasio": "Rock Tunnel"
+    },
+    {
+      "nombre": "Medalla Arcoíris",
+      "gimnasio": "Celadon City"
+    },
+    {
+      "nombre": "Medalla Alma",
+      "gimnasio": "Lavender Town"
+    },
+    {
+      "nombre": "Medalla Volcán",
+      "gimnasio": "Cinnabar Island"
+    },
+    {
+      "nombre": "Medalla Dragón",
+      "gimnasio": "Dragon's Den"
+    }
+  ]
+}
