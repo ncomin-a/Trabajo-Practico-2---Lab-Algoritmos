@@ -1,6 +1,45 @@
 import json
 from typing import Dict, Set
 
+def ver_pokedex():
+    pass
+
+def ver_equipo():
+    pass
+
+def ver_pc():
+    pass
+
+def capturar_pokemon():
+    pass
+
+def ordenar_pc():
+    pass
+
+def buscar_pokemon():
+    pass
+
+def consultar_ID():
+    pass
+
+def enviar_pokemon():
+    pass
+
+def transferir_pokemon():
+    pass
+
+def deshacer_transf():
+    pass
+
+def desafiar_gym():
+    pass
+
+def ver_medallas():
+    pass
+
+def salir_sistema():
+    pass
+
 def mostrar_menu():
     print("\n--- MENÚ PRINCIPAL ---")
     print(" 1. Ver Pokédex")
@@ -17,4 +56,5 @@ def mostrar_menu():
     print("12. Ver Medallas")
     print("13. Salir del sistema")
 
-def main
+def main():
+    "1": lambda: 
