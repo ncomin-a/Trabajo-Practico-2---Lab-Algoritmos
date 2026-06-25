@@ -74,9 +74,9 @@ def inicializar_sistema():
 def ver_pokedex(entrenador):
     imprimir_encabezado("POKÉDEX NACIONAL")
     for id_pokemon in sorted(entrenador.pokedex.keys()):
-        print(entrenador.pokedex[id_pokemon])
+       print(entrenador.pokedex[id_pokemon])
     print(f"\nTotal de registros: {len(entrenador.pokedex)}")
-    pausar()
+    pausar() 
 
 
 def ver_equipo_principal(entrenador):
