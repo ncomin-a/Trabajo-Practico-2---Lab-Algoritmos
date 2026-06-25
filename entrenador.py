@@ -24,15 +24,22 @@ class Entrenador:
     def __init__(self, nombre="Entrenador"):
         self.nombre = nombre
 
+        # Catálogo global local del entrenador: id -> Pokemon
         self.pokedex = {}
 
+        # Equipo principal como lista Python (máx. 6)
         self.equipo_principal = []
-        self.pc = []
 
-        self.medallas = []
+        # PC como ListaEnlazada (sin límite)
+        self.pc = ListaEnlazada()
 
+        # Medallas como conjunto para evitar duplicados
+        self.medallas = set()
+
+        # Pila para las últimas transferencias (comportamiento tipo stack/deque)
         self.pila_transferencias = ListaEnlazada()
 
+        # Cola para el Centro Pokémon
         self.cola_centro_pokemon = ListaEnlazada()
 
     def cargar_pokedex_desde_json(self, ruta_archivo):
@@ -46,8 +53,6 @@ class Entrenador:
                 nombre=entrada["nombre"],
                 tipo=entrada["tipo"],
                 poder_combate=entrada["poder_combate"],
-                hp=entrada.get("hp", 100),
-                nivel=entrada.get("nivel", 1),
             )
             self.pokedex[pokemon.id] = pokemon
             if len(self.equipo_principal) < self.MAX_EQUIPO:
@@ -64,15 +69,22 @@ class Entrenador:
 
         cantidad_cargadas = 0
         for medalla in datos.get("medallas", []):
-            self.medallas.append(medalla)
-            cantidad_cargadas += 1
+            # Guardar sólo el nombre de la medalla para el conjunto
+            nombre = medalla.get("nombre") if isinstance(medalla, dict) else medalla
+            if nombre not in self.medallas:
+                self.medallas.add(nombre)
+                cantidad_cargadas += 1
 
         return cantidad_cargadas
 
     def agregar_medalla(self, medalla):
-        self.medallas.append(medalla)
         nombre_medalla = medalla.get("nombre", medalla) if isinstance(medalla, dict) else medalla
+        if nombre_medalla in self.medallas:
+            print(f"{self.nombre} ya posee la {nombre_medalla}.")
+            return False
+        self.medallas.add(nombre_medalla)
         print(f"{self.nombre} ha obtenido la {nombre_medalla}.")
+        return True
 
     def generar_pokemon_aleatorio(self):
         nombre = f"Pokémon {random.randint(1, 100)}"

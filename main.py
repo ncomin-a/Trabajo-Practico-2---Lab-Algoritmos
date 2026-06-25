@@ -1,39 +1,79 @@
 import json
 from typing import Dict, Set
 
-import entrenador
+from entrenador import Entrenador, GIMNASIOS
+
+jugador = Entrenador("Ash")
+
 def pausar():
     input("\nPresione Enter para continuar...")
 
 def ver_pokedex():
-    for id, pokemon in entrenador.pokedex.items():
-        print(f"ID: {id}, Nombre: {pokemon.nombre}, Tipo: {pokemon.tipo}, Poder de Combate: {pokemon.poder_combate}")
-
+    if not jugador.pokedex:
+        print("La Pokédex está vacía.")
+        return
+    for id_pokemon, pokemon in jugador.pokedex.items():
+        print(f"ID: {id_pokemon}, Nombre: {pokemon.nombre}, Tipo: {pokemon.tipo}, "
+              f"Poder de Combate: {pokemon.poder_combate}")
+        
 def ver_equipo():
-    for pokemon in entrenador.equipo:
-        print(f"Nombre: {pokemon.nombre}, Tipo: {pokemon.tipo}, Poder de Combate: {pokemon.poder_combate}")
-
+    if not jugador.equipo_principal:
+        print("El equipo principal está vacío.")
+        return
+    for pokemon in jugador.equipo_principal:
+        print(f"Nombre: {pokemon.nombre}, Tipo: {pokemon.tipo}, "
+              f"Poder de Combate: {pokemon.poder_combate}, HP: {pokemon.hp}")
+        
 def ver_pc():
-    if entrenador.pc.esta_vacia():
+    if jugador.pc.esta_vacia():
         print("La PC está vacía.")
     else:
-        for i, pokemon in enumerate(entrenador.pc, start=1):
+        for i, pokemon in enumerate(jugador.pc, start=1):
             print(f"{i}. {pokemon}")
-    print(f"\nTotal en PC: {len(entrenador.pc)}")
-    
-    
+    print(f"\nTotal en PC: {len(jugador.pc)}")
+
+
 def capturar_pokemon():
-    pass
+    nuevo = jugador.generar_pokemon_aleatorio()
+    print(f"¡Apareció {nuevo.nombre} ({nuevo.tipo}, Poder de Combate {nuevo.poder_combate})!")
+    jugador.capturar_pokemon(nuevo)
 
 def ordenar_pc():
-    pass
+    if not jugador.pc:
+        print("La PC está vacía, no hay nada para ordenar.")
+        return
+
+    print("¿Por qué criterio querés ordenar la PC?")
+    print(" 1. Poder de combate")
+    print(" 2. Nombre")
+    print(" 3. Nivel")
+    criterio = input("Opción: ").strip()
+    if criterio == "1":
+        jugador.pc.ordenar_por_poder()
+    elif criterio == "2":
+        jugador.pc.ordenar_por_nombre()
+    elif criterio == "3":
+        jugador.pc.ordenar_por_nivel()
+    else:
+        print("Opción inválida.")
 
 def buscar_pokemon():
-    for pokemon in entrenador.equipo:
+    if not jugador.equipo_principal:
+        print("El equipo principal está vacío.")
+        return
+    for pokemon in jugador.equipo_principal:
         print(f"Nombre: {pokemon.nombre}, Tipo: {pokemon.tipo}, Poder de Combate: {pokemon.poder_combate}")
 
 def consultar_ID():
-    pass
+    id_pokemon = input("Ingrese el ID del Pokémon que desea consultar: ")
+    if id_pokemon.isdigit():
+        id_pokemon = int(id_pokemon)
+        if id_pokemon in jugador.pokedex:
+            pokemon = jugador.pokedex[id_pokemon]
+            print(f"ID: {pokemon.id}, Nombre: {pokemon.nombre}, Tipo: {pokemon.tipo}, Poder de Combate: {pokemon.poder_combate}, HP: {pokemon.hp}, Nivel: {pokemon.nivel}")
+        else:
+            print(f"No se encontró un Pokémon con ID {id_pokemon}.")
+    
 
 def enviar_pokemon():
     pass
@@ -45,14 +85,17 @@ def deshacer_transf():
     pass
 
 def desafiar_gym():
-    pass
+    for i in range(len(GIMNASIOS)):
+        gimnasio = GIMNASIOS[i]
+        print(f"{i + 1}. {gimnasio['nombre']} (Líder: {gimnasio['lider']})")
+
 
 def ver_medallas():
-    if not entrenador.medallas:
+    if not jugador.medallas:
         print("No ganaste ninguna medalla aún.")
     else:
-        for medalla in entrenador.medallas:
-            print(f"Medalla: {medalla['nombre']}, Gimnasio: {medalla['gimnasio']}")
+        for nombre in jugador.medallas:
+            print(f"Medalla: {nombre}")
 
 def salir_sistema():
     print("Saliendo del sistema. ¡Hasta luego!")
