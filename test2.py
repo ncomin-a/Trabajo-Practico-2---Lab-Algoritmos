@@ -113,7 +113,7 @@ def enviar_pokemon():
         print("El equipo principal está vacío.")
         return
 
-    nombre_buscado = input("Nombre del Pokémon a enviar al Centro Pokémon: ").strip().lower()
+    nombre_buscado = input("Nombre del Pokémon a enviar al Profesor Oak: ").strip().lower()
     pokemon = next((p for p in jugador.equipo_principal if p.nombre.lower() == nombre_buscado), None)
 
     if pokemon is None:

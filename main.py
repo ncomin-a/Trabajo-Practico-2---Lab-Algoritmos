@@ -1,5 +1,6 @@
 import json
 from typing import Dict, Set
+import random
 
 from entrenador import Entrenador, GIMNASIOS
 
@@ -13,16 +14,14 @@ def ver_pokedex():
         print("La Pokédex está vacía.")
         return
     for id_pokemon, pokemon in jugador.pokedex.items():
-        print(f"ID: {id_pokemon}, Nombre: {pokemon.nombre}, Tipo: {pokemon.tipo}, "
-              f"Poder de Combate: {pokemon.poder_combate}")
+        print(f"ID: {id_pokemon}, Nombre: {pokemon.nombre}, Tipo: {pokemon.tipo}, ")
         
 def ver_equipo():
     if not jugador.equipo_principal:
         print("El equipo principal está vacío.")
         return
     for pokemon in jugador.equipo_principal:
-        print(f"Nombre: {pokemon.nombre}, Tipo: {pokemon.tipo}, "
-              f"Poder de Combate: {pokemon.poder_combate}, HP: {pokemon.hp}")
+        print(f"ID: {pokemon.id}, Nombre: {pokemon.nombre}, Tipo: {pokemon.tipo}, ")
         
 def ver_pc():
     if jugador.pc.esta_vacia():
@@ -35,7 +34,7 @@ def ver_pc():
 
 def capturar_pokemon():
     nuevo = jugador.generar_pokemon_aleatorio()
-    print(f"¡Apareció {nuevo.nombre} ({nuevo.tipo}, Poder de Combate {nuevo.poder_combate})!")
+    print(f"¡Apareció {nuevo.nombre} ({nuevo.tipo})!")
     jugador.capturar_pokemon(nuevo)
 
 def ordenar_pc():
@@ -61,8 +60,15 @@ def buscar_pokemon():
     if not jugador.equipo_principal:
         print("El equipo principal está vacío.")
         return
-    for pokemon in jugador.equipo_principal:
-        print(f"Nombre: {pokemon.nombre}, Tipo: {pokemon.tipo}, Poder de Combate: {pokemon.poder_combate}")
+    
+    nombre_buscar = input("Ingrese el nombre del Pokémon que desea buscar: ").strip().lower()
+    encontrados = [pokemon for pokemon in jugador.equipo_principal if pokemon.nombre.lower() == nombre_buscar]
+    if encontrados:
+        print("Pokémones encontrados:")
+        for pokemon in encontrados:
+            print(f"ID: {pokemon.id}, Nombre: {pokemon.nombre}, Tipo: {pokemon.tipo}")
+    else:
+        print("No se encontró ningún Pokémon con ese nombre.")
 
 def consultar_ID():
     id_pokemon = input("Ingrese el ID del Pokémon que desea consultar: ")
@@ -70,32 +76,81 @@ def consultar_ID():
         id_pokemon = int(id_pokemon)
         if id_pokemon in jugador.pokedex:
             pokemon = jugador.pokedex[id_pokemon]
-            print(f"ID: {pokemon.id}, Nombre: {pokemon.nombre}, Tipo: {pokemon.tipo}, Poder de Combate: {pokemon.poder_combate}, HP: {pokemon.hp}, Nivel: {pokemon.nivel}")
+            print(f"ID: {pokemon.id}, Nombre: {pokemon.nombre}, Tipo: {pokemon.tipo}")
         else:
             print(f"No se encontró un Pokémon con ID {id_pokemon}.")
     
 
 def enviar_pokemon():
-    pass
+    if not jugador.equipo_principal:
+        print("El equipo principal está vacío.")
+        return
+
+    print("Pokémones en el equipo principal:")
+    for i, pokemon in enumerate(jugador.equipo_principal, start=1):
+        print(f"{i}. {pokemon.nombre} (ID: {pokemon.id}, Tipo: {pokemon.tipo})")
+
+    try:
+        indice = int(input("Ingrese el número del Pokémon que desea enviar al Centro Pokémon: ")) - 1
+        if 0 <= indice < len(jugador.equipo_principal):
+            pokemon_a_enviar = jugador.equipo_principal[indice]
+            jugador.enviar_pokemon_centro(pokemon_a_enviar)
+        else:
+            print("Número inválido.")
+    except ValueError:
+        print("Entrada inválida. Por favor, ingrese un número válido.")
 
 def transferir_pokemon():
-    pass
+    if not jugador.equipo_principal:
+        print("El equipo principal está vacío.")
+        return
+
+    print("Pokémones en el equipo principal:")
+    for i, pokemon in enumerate(jugador.equipo_principal, start=1):
+        print(f"{i}. {pokemon.nombre} (ID: {pokemon.id}, Tipo: {pokemon.tipo})")
+
+    try:
+        indice = int(input("Ingrese el número del Pokémon que desea transferir al Profesor Oak: ")) - 1
+        if 0 <= indice < len(jugador.equipo_principal):
+            pokemon_a_transferir = jugador.equipo_principal[indice]
+            jugador.transferir_pokemon(pokemon_a_transferir, jugador)
+        else:
+            print("Número inválido.")
+    except ValueError:
+        print("Entrada inválida. Por favor, ingrese un número válido.")
 
 def deshacer_transf():
     pass
 
 def desafiar_gym():
-    for i in range(len(GIMNASIOS)):
-        gimnasio = GIMNASIOS[i]
-        print(f"{i + 1}. {gimnasio['nombre']} (Líder: {gimnasio['lider']})")
+    print("Gimnasios disponibles:")
+    for gimnasio in GIMNASIOS:
+        print(f" {gimnasio['numero']}. Líder {gimnasio['lider']} - {gimnasio['medalla']}")
 
+    try:
+        numero = int(input("Ingrese el número del gimnasio a desafiar: "))
+    except ValueError:
+        print("Número inválido.")
+        return
+    
+    gimnasio = next((g for g in GIMNASIOS if g['numero'] == numero), None)
+    if gimnasio is None:
+        print("Gimnasio no encontrado.")
+        return
+    resultado = random.choice([True, False])
+    if resultado:
+        print(f"¡Felicidades! Has derrotado al líder {gimnasio['lider']} y obtenido la medalla {gimnasio['medalla']}!")
+        jugador.medallas.append({"nombre": gimnasio['medalla'], "gimnasio": gimnasio['lider']})
+    else:
+        print(f"Has sido derrotado por el líder {gimnasio['lider']}. ¡Sigue intentando!")
+    
 
 def ver_medallas():
     if not jugador.medallas:
         print("No ganaste ninguna medalla aún.")
     else:
-        for nombre in jugador.medallas:
-            print(f"Medalla: {nombre}")
+        for medalla in jugador.medallas:
+            print(f"Medalla: {medalla['nombre']}, Gimnasio: {medalla['gimnasio']}")
 
 def salir_sistema():
     print("Saliendo del sistema. ¡Hasta luego!")
