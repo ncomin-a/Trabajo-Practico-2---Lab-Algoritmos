@@ -65,17 +65,23 @@ def ordenar_pc():
 
     if criterio == "1":
         for i in range(n):
-            
+            for j in range(0, n-i-1):
+                if jugador.pc[j].poder_combate < jugador.pc[j+1].poder_combate:
+                    jugador.pc[j], jugador.pc[j+1] = jugador.pc[j+1], jugador.pc[j]
         print("PC ordenada por poder de combate (de mayor a menor).")
 
     elif criterio == "2":
         for i in range(n):
-            
+            for j in range(0, n-i-1):
+                if jugador.pc[j].nombre.lower() > jugador.pc[j+1].nombre.lower():
+                    jugador.pc[j], jugador.pc[j+1] = jugador.pc[j+1], jugador.pc[j]
         print("PC ordenada por nombre (alfabético).")
 
     elif criterio == "3":
         for i in range(n):
-            
+            for j in range(0, n-i-1):
+                if jugador.pc[j].nivel < jugador.pc[j+1].nivel:
+                    jugador.pc[j], jugador.pc[j+1] = jugador.pc[j+1], jugador.pc[j]
         print("PC ordenada por nivel (de mayor a menor).")
 
     else:
