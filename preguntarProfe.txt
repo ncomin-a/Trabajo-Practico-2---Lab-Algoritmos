@@ -1,0 +1,3 @@
+estructuras.py
+ordenar_pc en main.py
+generar_pokemon_aleatorio y capturar_pokemon en entrenador.py
