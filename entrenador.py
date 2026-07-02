@@ -49,16 +49,10 @@ class Entrenador:
                 poder_combate=entrada["poder_combate"],
             )
             self.pokedex[pokemon.id] = pokemon
-
-            if len(self.equipo_principal) < self.MAX_EQUIPO:
-                self.equipo_principal.append(pokemon)
-            else:
-                self.pc.append(pokemon)
-
             cantidad += 1
         return cantidad
 
-    def cargar_medallas_desde_json(self, ruta_archivo, cantidad_a_precargar=2):
+    def cargar_medallas_desde_json(self, ruta_archivo, cantidad_a_precargar=0):
         with open(ruta_archivo, "r", encoding="utf-8") as f:
             datos = json.load(f)
 

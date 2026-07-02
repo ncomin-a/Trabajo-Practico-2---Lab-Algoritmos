@@ -6,8 +6,8 @@ class Pokemon:
         self.poder_combate = poder_combate
 
     def sanar(self):
-        self.hp = self.hp_max
+        pass
 
     def __str__(self):
-        return f"Pokemon(ID: {self.id}, Nombre: {self.nombre}, Tipo: {self.tipo}, Poder de Combate: {self.poder_combate}))"
+        return f"Pokemon(ID: {self.id}, Nombre: {self.nombre}, Tipo: {self.tipo}, Poder de Combate: {self.poder_combate})"
     

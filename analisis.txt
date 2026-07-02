@@ -1,0 +1,9 @@
+6A- Si pones un Pokémon al final del equipo principal, es básicamente instantáneo: O(1). Python hace el append como por arte de magia, porque la lista ya tiene espacio extra y solo escribe el Pokémon en la siguiente celda libre. No tienes que mover nada, así que va fijo.
+
+En la PC con la lista enlazada, si lo pones al principio también es O(1). Se crea un nuevo nodo, su puntero siguiente apunta al lugar donde estaba la cabeza, y eso es todo: cabeza nueva. Da igual cuántos pokes haya, no hace falta ir recorriendo la lista. Ahora, si en cambio querés ponerlo al final de la lista enlazada, ahí sí se complica, porque tenés que caminar por todos los nodos hasta el último, y eso es O(n).
+
+B- Si la Pokédex fuera una lista normal, buscar un pokémon por ID sería muy fastidioso: tendrías que buscar uno por uno hasta encontrar el correcto, es decir O(n) en el peor caso. Con un Hash Map es otra cosa: el ID es la clave, el diccionario calcula dónde guardarlo, y entrás casi directo. Esto hace que el tiempo de búsqueda sea O(1) en promedio, mucho más rápido si estás buscando varios pokes.
+
+C- BUBBLE SORT: es muy lento cuando la cantidad de datos es grande. Su peor caso es O(n^2), y con 6.000 pokes eso se traduce en algo así como 36 millones de comparaciones si la lista está al revés. Bubble sort se pasa comparando vecinos y moviendo los que están mal.
+
+QUICKSORT: en promedio es O(n log n), que es bastante mejor. El peor caso también es O(n^2), pero eso solo pasa si elegís un pivote muy malo, como siempre el primero o el último en una lista ya ordenada. Para 6.000 pokes, en promedio sería más o menos 6.000 × log2(6.000) ≈ 75.300 comparaciones, lo que es una fracción mínima comparado con bubble sort en el peor caso.

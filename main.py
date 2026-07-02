@@ -28,7 +28,7 @@ def ver_equipo():
         print("El equipo principal está vacío.")
         return
     for pokemon in jugador.equipo_principal:
-        print(f"Nombre: {pokemon.nombre}, Tipo: {pokemon.tipo}, Poder de Combate: {pokemon.poder_combate}, HP: {pokemon.hp}/{pokemon.hp_max}")
+        print(f"Nombre: {pokemon.nombre}, Tipo: {pokemon.tipo}, Poder de Combate: {pokemon.poder_combate}")
 
 
 def ver_pc():
@@ -147,6 +147,10 @@ def deshacer_transf():
 
 
 def desafiar_gym():
+    if len(jugador.equipo_principal) <= 2:
+        print("No podés desafiar un líder de gimnasio sin tener al menos tres Pokemones en tu equipo.")
+        return
+
     print("Gimnasios disponibles:")
     for gimnasio in GIMNASIOS:
         print(f" {gimnasio['numero']}. Lider {gimnasio['lider']} - {gimnasio['medalla']}")
@@ -181,7 +185,6 @@ def ver_medallas():
 def salir_sistema():
     print("Saliendo... hasta luego!")
     exit(0)
-
 
 def mostrar_menu():
     print("\n--- MENU PRINCIPAL ---")
