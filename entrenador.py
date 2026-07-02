@@ -78,15 +78,18 @@ class Entrenador:
         return True
 
     def generar_pokemon_aleatorio(self):
-        pass
+        id_aleatorio = random.randint(1, 151)
+        if id_aleatorio in self.pokedex:
+            return self.pokedex[id_aleatorio]
+        return self.generar_pokemon_aleatorio()
 
     def capturar_pokemon(self, pokemon):
-        pokemon = 
+        pokemon = self.generar_pokemon_aleatorio()
 
         capturado = random.choice([True, False])
         if capturado:
             print(f"{self.nombre} atrapó un {pokemon}!")
-            self.agregar_medalla(medalla)
+            self.equipo_principal.append(pokemon)
         else:
             print(f"{self.nombre} no pudo atrapar a {pokemon}. Segui intentando!")
 
