@@ -17,7 +17,7 @@ def inicializar():
 
 def ver_pokedex():
     if len(jugador.pokedex) == 0:
-        print("La Pokedex esta vacia.")
+        print("La Pokedex esta vacía.")
         return
     for id_pokemon, pokemon in jugador.pokedex.items():
         print(f"ID: {id_pokemon}, Nombre: {pokemon.nombre}, Tipo: {pokemon.tipo}, Poder de Combate: {pokemon.poder_combate}")
@@ -25,7 +25,7 @@ def ver_pokedex():
 
 def ver_equipo():
     if len(jugador.equipo_principal) == 0:
-        print("El equipo principal está vacio.")
+        print("El equipo principal está vacío.")
         return
     for pokemon in jugador.equipo_principal:
         print(f"Nombre: {pokemon.nombre}, Tipo: {pokemon.tipo}, Poder de Combate: {pokemon.poder_combate}, HP: {pokemon.hp}/{pokemon.hp_max}")
@@ -33,7 +33,7 @@ def ver_equipo():
 
 def ver_pc():
     if len(jugador.pc) == 0:
-        print("La PC esta vacía.")
+        print("La PC esta vacía")
     else:
         i = 1
         for pokemon in jugador.pc:
@@ -91,7 +91,7 @@ def consultar_ID():
     try:
         id_pokemon = int(input("Ingrese el ID del Pokemon a consultar: "))
     except ValueError:
-        print("ID invalido, tiene que ser un número.")
+        print("ID inválido, tiene que ser un número.")
         return
 
     pokemon = jugador.busqueda_binaria_pokedex(id_pokemon)
@@ -103,7 +103,7 @@ def consultar_ID():
 
 def enviar_pokemon():
     if len(jugador.equipo_principal) == 0:
-        print("El equipo principal esta vacío.")
+        print("El equipo principal esta vacío")
         return
 
     nombre_buscado = input("Nombre del Pokemon a enviar al Centro Pokemon: ").lower()
@@ -124,7 +124,7 @@ def enviar_pokemon():
 
 def transferir_pokemon():
     if len(jugador.equipo_principal) == 0 and len(jugador.pc) == 0:
-        print("No tenés Pokemon en la PC para transferir.")
+        print("No tenés Pokemon en la PC para transferir")
         return
 
     nombre_buscado = input("Nombre del Pokemon a transferir al Profesor Oak (tiene que estar en la PC): ").lower()
@@ -234,7 +234,7 @@ def main():
         elif opcion == "13":
             salir_sistema()
         else:
-            print("Opción inválida, ingresa un número del 1 al 13.")
+            print("Opción inválida, ingresa un número del 1 al 13")
 
         pausar()
 

@@ -117,14 +117,14 @@ class Entrenador:
         print('Enfermera Joy: "Estamos curando a tu Pokémon"')
         pokemon = self.cola_centro_pokemon.pop_front()
         pokemon.sanar()
-        print(f"Procesando: [{pokemon.nombre}] -> Sanado.")
+        print(f"Procesando: [{pokemon.nombre}] ah sido sanado.")
 
         if len(self.equipo_principal) < self.MAX_EQUIPO:
             self.equipo_principal.append(pokemon)
         else:
             self.pc.append(pokemon)
 
-        print('Enfermera Joy: "¡Tu Pokémon está en perfecta forma!"')
+        print('Enfermera Joy: "¡Tu Pokémon ya está sano y salvo!"')
         return pokemon
 
     def transferir_a_oak(self, pokemon):
@@ -134,8 +134,7 @@ class Entrenador:
 
         if len(self.pila_transferencias) >= self.MAX_PILA_TRANSFERENCIAS:
             descartado = self.pila_transferencias.pop_back()
-            print(f"(La pila de transferencias llegó al tope de {self.MAX_PILA_TRANSFERENCIAS}; "
-                  f"se descartó el registro más antiguo: {descartado.nombre}.)")
+            print(f"(La pila de transferencias llegó al tope de {self.MAX_PILA_TRANSFERENCIAS}, se descartó el registro más antiguo: {descartado.nombre}.)")
 
         self.pila_transferencias.push_front(pokemon)
         print(f"Se transfirió a '{pokemon.nombre}' al Profesor Oak")
